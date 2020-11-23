@@ -5,7 +5,7 @@ const miniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: './src/scripts/app.js',
+  entry: './src/app.js',
   output: {
     filename: '[name].[contentHash].js',
     path: path.resolve(__dirname, 'dist')
@@ -18,11 +18,7 @@ module.exports = {
     },
     {
       test: /\.scss$/,
-      use: [
-        miniCSSExtractPlugin.loader,
-        'css-loader',
-        'sass-loader'
-      ]
+      use: [ miniCSSExtractPlugin.loader, 'css-loader', 'sass-loader' ]
     },
     {
       test: /\.html$/,

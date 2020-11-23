@@ -3,7 +3,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/scripts/app.js',
+  entry: './src/app.js',
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
@@ -37,7 +37,11 @@ module.exports = {
     new HTMLWebpackPlugin({ template: './src/index.html' }),
   ],
   devServer: {
-    contentBase: path.resolve(__dirname, 'public')
+    contentBase: path.resolve(__dirname, 'public'),
+    watchOptions: {
+      aggregateTimeout: 1000,
+      ignored: /node_modules/
+    }
   },
   devtool: 'source-map'
 };

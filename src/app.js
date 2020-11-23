@@ -1,4 +1,4 @@
-import '../styles/styles.scss';
+import './styles.scss';
 
 const p = document.createElement('p');
 p.textContent = 'Injected from JS';
