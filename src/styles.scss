@@ -4,3 +4,9 @@ body {
   color: $mainColor;
   background-color: #f4f4f4;
 }
+
+.test {
+  transform: scale(2);
+  transition: 1s ease;
+  transform-origin: left;
+}

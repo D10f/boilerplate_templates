@@ -3,6 +3,10 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const miniCSSExtractPlugin = require('mini-css-extract-plugin');
 
+const postcssPlugins = [
+  require('autoprefixer')
+];
+
 module.exports = {
   mode: 'production',
   entry: './src/app.js',
@@ -14,11 +18,29 @@ module.exports = {
     rules: [
     {
       test: /\.js$/,
-      exclude: /node_modules/
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env']
+        }
+      }
     },
     {
       test: /\.scss$/,
-      use: [ miniCSSExtractPlugin.loader, 'css-loader', 'sass-loader' ]
+      use: [
+        miniCSSExtractPlugin.loader,
+        'css-loader',
+        'sass-loader',
+        {
+          loader: 'postcss-loader',
+          options: {
+            postcssOptions: {
+              plugins: postcssPlugins
+            }
+          }
+        }
+      ]
     },
     {
       test: /\.html$/,
