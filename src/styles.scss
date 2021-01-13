@@ -1,12 +1,18 @@
-$mainColor: cornflowerblue;
+@import 'styles/fonts';
 
-body {
-  color: $mainColor;
-  background-color: #f4f4f4;
-}
+@import 'styles/abstract/functions';
+@import 'styles/abstract/mixins';
+@import 'styles/abstract/variables';
 
-.test {
-  transform: scale(2);
-  transition: 1s ease;
-  transform-origin: left;
-}
+@import 'styles/base/animations';
+@import 'styles/base/base';
+@import 'styles/base/typography';
+@import 'styles/base/utilities';
+
+@import 'styles/components/button';
+
+@import 'styles/layout/column';
+@import 'styles/layout/header';
+@import 'styles/layout/footer';
+
+@import 'styles/pages/home';

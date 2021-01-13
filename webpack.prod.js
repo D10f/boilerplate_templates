@@ -47,12 +47,32 @@ module.exports = {
       use: ['html-loader']
     },
     {
+      test: /\.(ttf|eot|svg|woff2?)/,
+      use: {
+        loader: "url-loader",
+        options: {
+          name: "[name].[ext]",
+          outputPath: "fonts"
+        }
+      }
+    },
+    {
       test: /\.(svg|png|jpg|gif)$/,
       use: {
         loader: "file-loader",
         options: {
           name: "[name].[hash].[ext]",
           outputPath: "images"
+        }
+      }
+    },
+    {
+      test: /\.(mp4|webm)$/,
+      use: {
+        loader: "file-loader",
+        options: {
+          name: "[name].[hash].[ext]",
+          outputPath: "videos"
         }
       }
     }]
