@@ -47,21 +47,20 @@ module.exports = {
       use: ['html-loader']
     },
     {
-      test: /\.(ttf|eot|svg|woff2?)/,
+      test: /\.(ttf|otf|woff|woff2)$/,
       use: {
-        loader: "url-loader",
+        loader: 'url-loader',
         options: {
-          name: "[name].[ext]",
-          outputPath: "fonts"
+          name: '[name].[ext]',
+          outputPath: 'fonts'
         }
       }
-    },
-    {
-      test: /\.(svg|png|jpg|gif)$/,
+    },{
+      test: /\.(svg|png|jpe?g|gif)$/,
       use: {
         loader: "file-loader",
         options: {
-          name: "[name].[hash].[ext]",
+          name: "[name].[ext]",
           outputPath: "images"
         }
       }
@@ -69,10 +68,10 @@ module.exports = {
     {
       test: /\.(mp4|webm)$/,
       use: {
-        loader: "file-loader",
+        loader: 'file-loader',
         options: {
-          name: "[name].[hash].[ext]",
-          outputPath: "videos"
+          name: '[name].[ext]',
+          outputPath: 'videos'
         }
       }
     }]
@@ -81,5 +80,10 @@ module.exports = {
     new HTMLWebpackPlugin({ template: './src/index.html' }),
     new miniCSSExtractPlugin({ filename: "[name].[hash].css"}),
     new CleanWebpackPlugin()
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  }
 };

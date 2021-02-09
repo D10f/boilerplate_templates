@@ -1,14 +1,11 @@
-### Webpack, Babel & Sass
+### Choose your configuration for your next project
 
-Get started in your new project right away with this boilerplate suited for all JavaScript projects. Use the latest ES6+ features, CSS properties and make the most out of Sass varbiables, mixins and functions out of the box.
+The `src` folder contains the basic `html`, `scss` and `js` files and structure to get started. Choose which boilerplate configuration to use (this will be updated over time) and extract those files along with `src`, deleting other configuration folders not in use. Run `npm install` to install dependencies.
 
-> This boilerplate package uses Webpack 4.x rather than 5.x because of existing issues with webpack-dev-server and other plugins.
+#### Webpack v4
 
-### Assets
-All additional assets such as images, videos and other static content publicly accessible for the visitor is stored here.
+> (Deprecated) Includes webpack, babel, sass and css folder setup
 
-### Scripts
-The application's JavaScript code is saved here and imported from `app.js`, which is then bundled together as a single, minified file.
+#### Webpack v5
 
-### Styles
-The application's styling files are saved here and imported from `styles.scss`, which is then bundlded together as a single, minified file.
+Includes updated modules for Webpack, Sass and other configuration files for babel, postcss and browserslist for backwards compatibility. Suited for projects using HTML, CSS, JS and React.js.
