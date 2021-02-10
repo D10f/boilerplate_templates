@@ -19,6 +19,7 @@ if (process.env.NODE_ENV === 'production') {
   plugins.push(new CleanWebpackPlugin());
 }
 
+
 module.exports = {
   mode: mode,
   target: target,
@@ -75,7 +76,7 @@ module.exports = {
   },
   devtool: devtool,
   devServer: {
-    contentBase: './dist/',
+    contentBase: path.resolve(__dirname, 'dist'),
     watchOptions: {
       aggregateTimeout: 1000,
       ignored: /node_modules/
@@ -83,5 +84,10 @@ module.exports = {
     hot: true,
     // host: '0.0.0.0',
     // https: true
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
   }
 };
