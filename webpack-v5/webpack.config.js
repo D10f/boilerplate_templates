@@ -8,8 +8,7 @@ let mode = 'development';
 let target = 'web';
 let devtool = 'source-map';
 let plugins = [
-  new HtmlWebpackPlugin({ template: './src/index.html' }),
-  new MiniCssExtractPlugin({ filename: "[name].[contenthash].css" })
+  new HtmlWebpackPlugin({ template: './src/index.html' })
 ];
 
 if (process.env.NODE_ENV === 'production') {
@@ -17,15 +16,17 @@ if (process.env.NODE_ENV === 'production') {
   target = 'browserslist';
   devtool = false;
   plugins.push(new CleanWebpackPlugin());
+  plugins.push(new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }));
+} else {
+  plugins.push(new MiniCssExtractPlugin({ filename: '[name].css' }));
 }
-
 
 module.exports = {
   mode: mode,
   target: target,
-  entry: './src/app.js',
+  entry: './src/index.js',
   output: {
-    filename: '[name].[contenthash].js',
+    filename: mode === 'development' ? '[name].js' : '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'images/[name][ext][query]'
   },
@@ -81,13 +82,11 @@ module.exports = {
       aggregateTimeout: 1000,
       ignored: /node_modules/
     },
-    hot: true,
-    // host: '0.0.0.0',
-    // https: true
+    hot: true
   },
   optimization: {
     splitChunks: {
-      chunks: 'all'
+      chunks: mode === 'production' ? 'all' : 'async'
     }
   }
 };
