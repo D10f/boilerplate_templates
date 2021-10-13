@@ -78,12 +78,18 @@ module.exports = {
   },
   devtool: devtool,
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
-    watchOptions: {
-      aggregateTimeout: 1000,
-      ignored: /node_modules/
+    static: {
+      directory: path.resolve(__dirname, 'dist'),
+      publicPath: '/assets',
     },
-    hot: true
+    watchFiles: {
+      paths: path.resolve(__dirname, 'src'),
+      options: {
+        ignored: /node_modules/
+      }
+    },
+    compress: false, // <- true is default
+    hot: true // <- true is default
   },
   optimization: {
     splitChunks: {
