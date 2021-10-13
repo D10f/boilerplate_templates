@@ -8,4 +8,4 @@ The `src` folder contains the basic `html`, `scss` and `js` files and structure 
 
 #### Webpack v5
 
-Includes updated modules for Webpack, Sass and other configuration files for babel, postcss and browserslist for backwards compatibility. Suited for projects using HTML, CSS, JS and React.js.
+Includes a complete webpack configuration suitable for projects using vanilla JavaScript or React.js, with support for TypeScript as well.
