@@ -4,12 +4,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+const plugins = [
+  new HtmlWebpackPlugin({ template: './src/index.html' })
+];
+
 let mode = 'development';
 let target = 'web';
 let devtool = 'source-map';
-let plugins = [
-  new HtmlWebpackPlugin({ template: './src/index.html' })
-];
 
 if (process.env.NODE_ENV === 'production') {
   mode = 'production';
@@ -24,7 +25,7 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
   mode: mode,
   target: target,
-  entry: './src/index.js',
+  entry: './src/index',
   output: {
     filename: mode === 'development' ? '[name].js' : '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
@@ -51,7 +52,7 @@ module.exports = {
         }
       },
       {
-        test: /\.jsx?/,
+        test: /\.(j|t)sx?/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
@@ -73,7 +74,7 @@ module.exports = {
   },
   plugins: plugins,
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
   devtool: devtool,
   devServer: {
