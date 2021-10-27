@@ -1,12 +1,12 @@
 {
-  "name": "webpack-v5",
+  "name": "webpack-v5-dom-typescript",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "start": "webpack serve",
     "build": "NODE_ENV=production webpack",
-    "test": "tsc"
+    "types": "tsc"
   },
   "keywords": [],
   "author": "",

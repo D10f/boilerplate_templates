@@ -6,9 +6,9 @@
 
 ### Instructions
 
-+ `npm start` starts the development server.
++ `npm run start` starts the development server.
 + `npm run build` compiles your code inside `/src` to the `/dist` directory.
-+ `npm run test` checks your code for type errors using Typescript.
++ `npm run types` checks your code for type errors using Typescript.
 
 ### Typescript Support
 
