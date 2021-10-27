@@ -6,7 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 const plugins = [
-  new HtmlWebpackPlugin({ template: './src/index.html' }),
+  new HtmlWebpackPlugin({ template: './public/index.html' }),
 ];
 
 let mode = 'development';
@@ -80,7 +80,18 @@ module.exports = {
   },
   plugins: plugins,
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+      '@assets': path.resolve(__dirname, 'src/assets'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@pages': path.resolve(__dirname, 'src/pages'),
+      '@services': path.resolve(__dirname, 'src/services'),
+      '@store': path.resolve(__dirname, 'src/store'),
+      '@utils': path.resolve(__dirname, 'src/utils'),
+      '@constants': path.resolve(__dirname, 'src/utils/constants'),
+      '@types': path.resolve(__dirname, 'src/types'),
+    }
   },
   devtool: devtool,
   devServer: {

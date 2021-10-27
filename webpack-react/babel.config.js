@@ -5,8 +5,7 @@ module.exports = {
     '@babel/preset-typescript',
   ],
   plugins: [
-    'react-refresh/babel'
+    'react-refresh/babel',
+    '@babel/plugin-transform-runtime'
   ]
 };
-
-// https://babeljs.io/docs/en/babel-preset-react/#react-automatic-runtime
